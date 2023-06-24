@@ -1,0 +1,1 @@
+This directory is where we will place the necessary documentation about our project. Starting with the game_manual file which will explain the rules of our game.
