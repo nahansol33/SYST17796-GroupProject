@@ -1,0 +1,2 @@
+This is the directory where we will place our appropriate UML and Use Case diagrams for our project as required.
+  @Adegoke, once you are done with the UML diagram, please upload the uml diagram into the "diagrams" directory and delete this file.
