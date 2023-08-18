@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Start extends Game {
+    private static int round = 1;
     
     private Deck gameDeck;
 
@@ -32,21 +33,29 @@ public class Start extends Game {
 
     public ActualPlayer determineWinner(ActualPlayer player1, ActualPlayer player2){
         ActualPlayer winner = null;
-        if (calculateScore(player1) > 34 ){ 
-            winner = player2; 
-        } else if (calculateScore(player2) > 34 ){
-            winner = player1; 
-        } else if(calculateScore(player1) == 34 ){ 
-            winner = player1; 
-        } else if (calculateScore(player2) == 34 ){
-            winner = player2; 
+        if (round <= 3) {
+            if (calculateScore(player1) > 34 ){ 
+                winner = player2; 
+            } else if (calculateScore(player2) > 34 ){
+                winner = player1; 
+            } else if(calculateScore(player1) == 34 ){ 
+                winner = player1; 
+            } else if (calculateScore(player2) == 34 ){
+                winner = player2; 
+            }
+
+        } 
+        
+        //used recursive method to capture situations where the game is at the third round and no winner has emerged
+        if (round == 3 && determineWinner(player1, player2) == null) {
+            winner = player1.getHand().calculateTotalHandValue() < player2.getHand().calculateTotalHandValue() ? player1 : player2;
         }
         
         return winner;
     }
 
     public static void main(String[] args){
-        int round = 1;
+        // int round = 1;
         Start thisGame = new Start("Raiders");
         System.out.println("Welcome to " + thisGame.getName() + " game!!!");
         // System.out.print("\nPlease enter your username: ");
@@ -97,30 +106,29 @@ public class Start extends Game {
            round++;
         }
         
-        while (round > 1 && round <= 3) {
+        while (round > 1 && round < 3) {
             // deal one card to each player's board
             Deck.dealCard(player1.getHand());
             Deck.dealCard(player2.getHand());
 
-            //check for raider if no player has won
-           if (thisGame.determineWinner(player1, player2) == null){
-                /*
+           /*
                 This is sort of object chaining. The determineRaider method 
                 returns a player object. The raider attribute of that object is then turned on.                
                 */
-                thisGame.determineRaider(player1, player2).setIsRaider(true);
+            thisGame.determineRaider(player1, player2).setIsRaider(true);
 
-           }
+
 
 
             if (player1.getIsRaider()) {
                 //then player1 plays his options here since he is the raider.
                 //followed by player2's play options
-           } else {
+            } else {
                 //if not, then player2 is the raider and thus plays his options here
                 //followed by player1's play options
-           }
+            }
 
+           
            //declare winner if there is one at the end of the rounde
             if (thisGame.determineWinner(player1, player2) != null) {
                 thisGame.declareWinner(player1, player2);
@@ -132,6 +140,27 @@ public class Start extends Game {
            round++;
            
 
+        }
+        if (round == 3) {
+            Deck.dealCard(player1.getHand());
+            Deck.dealCard(player2.getHand());
+
+            thisGame.determineRaider(player1, player2).setIsRaider(true);
+
+            if (player1.getIsRaider()) {
+                //then player1 plays his options here since he is the raider.
+                //followed by player2's play options
+            } else {
+                //if not, then player2 is the raider and thus plays his options here
+                //followed by player1's play options
+            }
+            if (thisGame.determineWinner(player1, player2) != null) {
+                thisGame.declareWinner(player1, player2);
+                round = -1; //to end the game.
+
+            } else {
+                
+            }
         }
 
 
