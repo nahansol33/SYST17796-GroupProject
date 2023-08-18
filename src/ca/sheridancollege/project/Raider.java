@@ -1,14 +1,14 @@
-package ca.sheridancollege.project;
+// package ca.sheridancollege.project;
 
-public class Raider extends RegularPlayer{
+// public class Raider extends RegularPlayer{
    
    
    
-    Raider(String name){
-        super(name);
-    }
+//     Raider(String name){
+//         super(name);
+//     }
 
-    public void swapBoard(){
+//     public void swapBoard(){
         
-    }
-}
+//     }
+// }

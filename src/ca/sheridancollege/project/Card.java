@@ -12,7 +12,24 @@ package ca.sheridancollege.project;
  * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
  * @author Last modified on June 15 2023
  */
-public abstract class Card {
+public class Card {
+
+    private CardSuit suit;
+    private CardNumber value;
+
+    public Card(CardSuit suit, CardNumber value){
+        this.suit = suit;
+        this.value = value;
+    }
+
+    public CardSuit getSuit(){
+        return suit;
+    }
+    public CardNumber getValue(){
+        return value;
+    }
+
+
     //default modifier for child classes
 
     /**
@@ -20,7 +37,8 @@ public abstract class Card {
      *
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
-    @Override
-    public abstract String toString();
+    
+
+
 
 }

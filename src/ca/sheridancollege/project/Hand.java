@@ -3,14 +3,16 @@ package ca.sheridancollege.project;
 import java.util.ArrayList;
 
 public class Hand {
-    private ArrayList<Card> cardsInHand;
+    private ArrayList<Card> hand = new ArrayList<>();
+    private ActualPlayer owner;
 
     public void addCardtoHand(Card card){
-        cardsInHand.add(card);
+        hand.add(card);
 
     }
-    public Card playCardFromHand(int index){
-        return cardsInHand.get(index);
+    public void playCardFromHand(int index){
+        owner.getBoard().addCardToBoard(hand.get(index));
+        // board.addCardtoHand(hand.get(index));
 
     }
     
