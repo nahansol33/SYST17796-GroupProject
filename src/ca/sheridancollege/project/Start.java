@@ -24,13 +24,13 @@ public class Start extends Game {
         round++;
     }
 
-    public int calculateScore(ActualPlayer player1, ActualPlayer player2){
-        // player1.getBoard()
-        return 1;
+    public int calculateScore(ActualPlayer player){
+        return player.getBoard().calculateTotalBoardValue();
     }
 
-    public boolean determineRaider(){
-        return false;
+    public ActualPlayer determineRaider(ActualPlayer player1, ActualPlayer player2){
+        
+        return calculateScore(player1) > calculateScore(player2) ? player1 : player2;
     }
 
     public static void main(String[] args){
@@ -47,11 +47,12 @@ public class Start extends Game {
         // for(int i = 0; i < CardNumber.values().length; i++){
         //     System.out.println(CardNumber.values()[i]);
         // }
-        ArrayList<Card> deck = Deck.getDeck();
+        // ArrayList<Card> deck = Deck.getDeck();
        
         Deck.dealCard(player1);
+        Deck.dealCard(player1);
         
-        System.out.println(player1.getBoard().calc());
+        System.out.println(player1.getBoard().calculateTotalBoardValue());
         // System.out.println(player1.getBoard().get(0).getValue());
 
 

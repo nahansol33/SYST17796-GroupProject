@@ -34,7 +34,7 @@ public class Deck {
 
     public static void dealCard(ActualPlayer player){
         ArrayList<Card> deck = getDeck();
-        int rand = 0 + (int)(Math.random() * ((52 - 0) + 1));
+        int rand = (int)(Math.random() * 51);
         // System.out.println(rand);
         Card card = deck.get(rand);
         // System.out.println(card.getValue());
