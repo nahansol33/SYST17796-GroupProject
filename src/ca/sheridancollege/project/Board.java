@@ -10,7 +10,11 @@ public class Board {
         
     }
 
-    public CardNumber calc(){
-       return board.get(0).getValue();
+    public int calc(){
+        int totalValue = 0;
+        for (int i = 0; i < board.size(); i++){
+            totalValue += board.get(i).getValue().getCardValue();
+        }
+        return totalValue;
     }
 }

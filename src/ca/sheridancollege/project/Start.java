@@ -24,8 +24,8 @@ public class Start extends Game {
         round++;
     }
 
-    public int calculateScore(ActualPlayer x, ActualPlayer y){
-
+    public int calculateScore(ActualPlayer player1, ActualPlayer player2){
+        // player1.getBoard()
         return 1;
     }
 
@@ -47,11 +47,14 @@ public class Start extends Game {
         // for(int i = 0; i < CardNumber.values().length; i++){
         //     System.out.println(CardNumber.values()[i]);
         // }
-        // ArrayList<Card> deck = Deck.getDeck();
+        ArrayList<Card> deck = Deck.getDeck();
+       
         Deck.dealCard(player1);
         
         System.out.println(player1.getBoard().calc());
-        System.out.println(player1.getBoard().get(0).getValue());
+        // System.out.println(player1.getBoard().get(0).getValue());
+
+
 
     }
     

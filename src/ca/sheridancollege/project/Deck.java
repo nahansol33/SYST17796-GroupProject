@@ -13,7 +13,7 @@ public class Deck {
     public static ArrayList<Card> getDeck(){
         if (deck == null){
             deck = new ArrayList<>();
-            for (int i = 0; i < 12; i++){
+            for (int i = 0; i < 13; i++){
                 CardNumber value = CardNumber.values()[i];
     
                 for (int j = 0; j < 4; j++){
@@ -34,12 +34,12 @@ public class Deck {
 
     public static void dealCard(ActualPlayer player){
         ArrayList<Card> deck = getDeck();
-        int rand = 0 + (int)(Math.random() * ((48 - 0) + 1));
+        int rand = 0 + (int)(Math.random() * ((52 - 0) + 1));
         // System.out.println(rand);
         Card card = deck.get(rand);
         // System.out.println(card.getValue());
         player.getBoard().addCardToBoard(card);
-        player.getBoard();
+       
     }
     
 }
