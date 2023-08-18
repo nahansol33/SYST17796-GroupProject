@@ -17,7 +17,7 @@ public class Start extends Game {
 
     
     public void declareWinner(ActualPlayer player1, ActualPlayer player2){
-       System.out.println("Winner is " + determineRaider(player1, player2));
+       System.out.println("Winner is " + determineWinner(player1, player2));
        
     }
 
