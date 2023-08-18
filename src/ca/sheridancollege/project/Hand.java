@@ -15,5 +15,13 @@ public class Hand {
         // board.addCardtoHand(hand.get(index));
 
     }
+
+    public int calculateTotalHandValue(){
+        int totalValue = 0;
+        for (int i = 0; i < hand.size(); i++){
+            totalValue += hand.get(i).getValue().getCardValue();
+        }
+        return totalValue;
+    }
     
 }

@@ -32,14 +32,20 @@ public class Deck {
        
     }
 
-    public static void dealCard(ActualPlayer player){
+    public static void dealCard(Object target){
         ArrayList<Card> deck = getDeck();
         int rand = (int)(Math.random() * 51);
-        // System.out.println(rand);
         Card card = deck.get(rand);
-        // System.out.println(card.getValue());
-        player.getBoard().addCardToBoard(card);
+        
+        if (target instanceof Board) {
+            ((Board)target).addCardToBoard(card);
+
+        } else if (target instanceof Hand) {
+            ((Hand)target).addCardtoHand(card);
+
+        }
        
     }
+    
     
 }
