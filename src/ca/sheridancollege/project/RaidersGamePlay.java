@@ -1,7 +1,9 @@
 package ca.sheridancollege.project;
-
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
 import java.util.Scanner;
 
+//This is the class for the VIEW of the MVC pattern. 
 public class RaidersGamePlay {
     public static void main(String[] args) throws Exception {
         Deck deck = new Deck();

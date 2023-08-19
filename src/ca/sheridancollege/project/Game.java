@@ -2,6 +2,10 @@ package ca.sheridancollege.project;
 
 import java.util.Scanner;
 
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
+
+//This acts as a controller for our game. It is the class that interacts with the model of our Raiders game. It has many methods used for running the game.
 public class Game {
     private int round;
     private Deck gamDeck;
@@ -16,6 +20,7 @@ public class Game {
         round = 1;
     }
 
+    //method used to play the game
     public void play(){
         initializePlayerBoards();
         initializePlayerHands();
@@ -123,7 +128,11 @@ public class Game {
         }
         
     }
-
+    
+    //Since our game has 3 rounds, and each round there will be a raider's turn and non-raider player's turn, we decided to 
+    //implement these functions to apply DRY principle. Therefore we can just call these methods each round.
+    
+    //method for the radier's turn
     public void raiderTurn(Player raider, Player non_raider){
         displayScore(raider, non_raider);
         System.out.println(raider + " goes first.");
@@ -152,6 +161,9 @@ public class Game {
             System.exit(0);
         }
     }
+    
+    //method for the non-raider's turn
+    
     public void non_raiderTurn(Player raider, Player non_raider){
         displayScore(raider, non_raider);
         System.out.println(non_raider + "'s turn.");

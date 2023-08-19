@@ -1,9 +1,12 @@
 package ca.sheridancollege.project;
 
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
 import java.util.Scanner;
-
+    
+//this class extends the player class, and overrides the raid method. We are appllying open close principle, by overriding the raid method.
 public class Raider extends Player{
-
+    
     public Raider(String name) {
         super(name);
     }

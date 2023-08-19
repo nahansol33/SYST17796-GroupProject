@@ -1,7 +1,12 @@
 package ca.sheridancollege.project;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
+
+//This class is for creating a Deck that is real-life like. It is dynamic meaning that everytime we deal a card from the deck, it is removed.
+//This ensure sthat no same card is dealt twice.
 public class Deck {
     private static ArrayList<Card> cardDeck = new ArrayList<>();
 

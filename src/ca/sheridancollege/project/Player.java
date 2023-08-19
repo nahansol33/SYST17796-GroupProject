@@ -1,7 +1,9 @@
 package ca.sheridancollege.project;
-
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
 import java.util.Scanner;
 
+//Class used for creating Player Instances.
 public class Player {
     protected String userName;
     protected PlayerBoard playerBoard;
@@ -21,7 +23,8 @@ public class Player {
     public void setUserName(String userName){
         this.userName = userName;
     }
-
+    
+    //Methods for player action
     public void attack(PlayerBoard opponentBoard, Card cardFromDeck){
         System.out.println("Adding a random card from Deck to opponent's Board");
         // System.out.println("Enter the card index of the Card from your Hand you wish to attack with: ");

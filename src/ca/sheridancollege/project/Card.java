@@ -1,5 +1,9 @@
 package ca.sheridancollege.project;
 
+// * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
+// * @author Last modified on Aug 18 2023
+
+//This class is for creating Card instances that will be used in a composition relationship with the Deck class to create a dynamic Deck
 public class Card {
     private CardSuit suit;
     private CardNumber number;
