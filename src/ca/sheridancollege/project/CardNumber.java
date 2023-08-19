@@ -1,4 +1,4 @@
-package raiders;
+package ca.sheridancollege.project;
 
 public enum CardNumber {
     ACE,
