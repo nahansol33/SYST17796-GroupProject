@@ -1,49 +1,71 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
-package ca.sheridancollege.project;
+package raiders;
 
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- *
- * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
- * @author Last modified on June 15 2023
- */
-public abstract class Player {
+import java.util.Scanner;
 
-    private String name; //the unique name for this player
+public class Player {
+    protected String userName;
+    protected PlayerBoard playerBoard;
+    protected boolean isRaider;
+    protected PlayerHand hand;
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name) {
-        this.name = name;
+    public Player(String name){
+        userName = name;
+        playerBoard = new PlayerBoard();
+        hand = new PlayerHand();
     }
 
-    /**
-     * @return the player name
-     */
-    public String getName() {
-        return name;
+    public String getUserName(){
+        return userName;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
+    public void attack(PlayerBoard opponentBoard, Card cardFromDeck){
+        System.out.println("Adding a random card from Deck to opponent's Board");
+        // System.out.println("Enter the card index of the Card from your Hand you wish to attack with: ");
+        // Scanner input = new Scanner(System.in);
+        // int userChoice = input.nextInt();
+        // Card card = hand.playCardFromHand(userChoice);
+        opponentBoard.addCardToBoard(cardFromDeck);
+        System.out.println("Attacked the opponenet with " + cardFromDeck);
+    }
 
+    public void playCard(){
+        System.out.println("Enter the card index of the Card from your Hand you wish to play to Your Board: ");
+        // System.out.println(hand.viewHand());
+        Scanner input = new Scanner(System.in);
+        int userChoice = input.nextInt();
+        Card card = hand.playCardFromHand(userChoice);
+        playerBoard.addCardToBoard(card);
+        System.out.println("Played card " + card + "to your board");
+    }
+
+    public void setRaiderStatus(boolean isRaider){
+        this.isRaider = isRaider;
+    }
+
+    public boolean getRaiderStatus(){
+        return isRaider;
+    }
+
+    public PlayerHand getPlayerHand(){
+        return hand;
+    }
+
+    public PlayerBoard getPlayerBoard(){
+        return playerBoard;
+    }
+
+    public void raid(Player non_raider){};
+
+    public void setPlayerBoard(PlayerBoard board){
+        playerBoard = board;
+    }
+
+    @Override
+    public String toString(){
+        return userName;
+    }
 }

@@ -1,26 +1,69 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
-package ca.sheridancollege.project;
+package raiders;
 
-/**
- * A class to be used as the base Card class for the project. Must be general enough to be instantiated for any Card
- * game. Students wishing to add to the code should remember to add themselves as a modifier.
- *
- * @author Hansol Na, Adegoke Akanbi, Bilson Sunny, Dev Dahiya
- * @author Last modified on June 15 2023
- */
-public abstract class Card {
-    //default modifier for child classes
+public class Card {
+    private CardSuit suit;
+    private CardNumber number;
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    public Card(CardSuit suit, CardNumber number){
+        this.suit = suit;
+        this.number = number;
+    } 
+
+    public int getValue(){
+        switch (this.number){
+            case ACE:
+            return 11;
+
+            case TWO:
+            return 2;
+
+            case THREE:
+            return 3;
+
+            case FOUR:
+            return 4;
+
+            case FIVE:
+            return 5;
+
+            case SIX:
+            return 6;
+            
+            case SEVEN:
+            return 7;
+
+            case EIGHT:
+            return 8;
+            
+            case NINE:
+            return 9;
+
+            case TEN:
+            return 10;
+
+            case JACK:
+            return 10;
+
+            case QUEEN:
+            return 10;
+
+            case KING:
+            return 10;
+
+        }
+        return 1;
+    }
+
+    public CardSuit getSuit(){
+        return suit;
+    }
+
+    public CardNumber getNumber(){
+        return number;
+    }
+
     @Override
-    public abstract String toString();
-
+    public String toString(){
+        return "" + getSuit() + " " +getNumber();
+    }
 }
